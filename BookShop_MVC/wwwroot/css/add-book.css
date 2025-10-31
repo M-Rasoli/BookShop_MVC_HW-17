@@ -1,0 +1,113 @@
+﻿/* سبک کلی صفحه */
+@font-face {
+    font-family: 'Vazir';
+    src: url('/fonts/Vazir-Medium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+body {
+    background-color: #f9fafb;
+    font-family: 'Vazir', 'Tahoma', sans-serif;
+    direction: rtl;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Vazir;
+}
+/* کارت اصلی فرم */
+.card {
+    background-color: #ffffff;
+    border-radius: 1rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.3s ease;
+}
+
+    .card:hover {
+        box-shadow: 0 10px 28px rgba(0, 0, 0, 0.1);
+    }
+
+/* عنوان فرم */
+h2 {
+    color: #374151;
+    border-right: 4px solid #4f46e5;
+    padding-right: 10px;
+}
+
+/* لیبل‌ها */
+label {
+    font-weight: 600;
+    color: #374151;
+}
+
+/* ورودی‌ها */
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="file"],
+select,
+textarea {
+    background-color: #f9fafb;
+    border: 1px solid #d1d5db;
+    border-radius: 0.5rem;
+    padding: 0.75rem 1rem;
+    width: 100%;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+        border-color: #6366f1;
+        box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+        outline: none;
+    }
+
+/* دکمه ارسال */
+button[type="submit"] {
+    background-color: #4f46e5;
+    color: #fff;
+    border: none;
+    border-radius: 0.75rem;
+    padding: 0.75rem 2rem;
+    font-weight: 600;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+    button[type="submit"]:hover {
+        background-color: #4338ca;
+        transform: translateY(-2px);
+    }
+
+    button[type="submit"]:active {
+        transform: translateY(0);
+    }
+
+/* فایل آپلود */
+input[type="file"] {
+    background-color: #f3f4f6;
+    cursor: pointer;
+}
+
+    input[type="file"]::-webkit-file-upload-button {
+        background-color: #6366f1;
+        color: white;
+        border: none;
+        border-radius: 0.5rem;
+        padding: 0.5rem 1rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+        input[type="file"]::-webkit-file-upload-button:hover {
+            background-color: #4f46e5;
+        }
+
+/* فاصله بین فیلدها در موبایل */
+@media (max-width: 768px) {
+    .grid {
+        gap: 1rem !important;
+    }
+}

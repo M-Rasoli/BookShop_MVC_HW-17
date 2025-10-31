@@ -17,6 +17,7 @@ namespace BookShop_MVC.Models.Infrastructure.Repositories
             return _context.Categories.AsNoTracking()
                 .Select(x => new GetCategoryDto()
                 {
+                    Id = x.Id,
                     Title = x.Title,
                     Description = x.Description
                 }).ToList();
