@@ -6,14 +6,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BookShop_MVC.Models.Infrastructure.Repositories
 {
-    public class BookRepository : IBookRepository
+    public class BookRepository(AppDbContext _context) : IBookRepository
     {
-        private readonly AppDbContext _context;
-        public BookRepository()
-        {
-            _context = new AppDbContext();
-        }
-
         public void AddNewBook(Book book)
         {
             _context.Books.Add(book);

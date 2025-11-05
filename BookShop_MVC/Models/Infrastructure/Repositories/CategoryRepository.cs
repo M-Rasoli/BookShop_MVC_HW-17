@@ -5,13 +5,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BookShop_MVC.Models.Infrastructure.Repositories
 {
-    public class CategoryRepository : ICategoryRepository
+    public class CategoryRepository(AppDbContext _context) : ICategoryRepository
     {
-        private readonly AppDbContext _context;
-        public CategoryRepository()
-        {
-            _context = new AppDbContext();
-        }
         public List<GetCategoryDto> GetCategory()
         {
             return _context.Categories.AsNoTracking()

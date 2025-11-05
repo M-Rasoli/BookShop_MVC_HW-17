@@ -3,14 +3,14 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BookShop_MVC.Models.Infrastructure.DateBase
 {
-    public class AppDbContext : DbContext
+    public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(options)
     {
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer(
-                @"Server=DESKTOP-I05OKD5\SQLEXPRESS;Database=BookShop-MVC;Integrated Security=true;TrustServerCertificate=true;");
-            base.OnConfiguring(optionsBuilder);
-        }
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    optionsBuilder.UseSqlServer(
+        //        @"Server=DESKTOP-I05OKD5\SQLEXPRESS;Database=BookShop-MVC;Integrated Security=true;TrustServerCertificate=true;");
+        //    base.OnConfiguring(optionsBuilder);
+        //}
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

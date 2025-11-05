@@ -6,16 +6,8 @@ using BookShop_MVC.Models.Infrastructure.Repositories;
 
 namespace BookShop_MVC.Application.Services
 {
-    public class BookService : IBookService
+    public class BookService(IFileService fileService , IBookRepository bookRepository) : IBookService
     {
-        private readonly IBookRepository bookRepository;
-        private readonly IFileService fileService;
-
-        public BookService()
-        {
-            bookRepository = new BookRepository();
-            fileService = new FileService();
-        }
 
         public void AddNewBook(AddBookDto book)
         {

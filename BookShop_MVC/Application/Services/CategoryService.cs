@@ -5,14 +5,8 @@ using BookShop_MVC.Models.Infrastructure.Repositories;
 
 namespace BookShop_MVC.Application.Services
 {
-    public class CategoryService : ICategoryService
+    public class CategoryService(ICategoryRepository categoryRepository) : ICategoryService
     {
-        private readonly ICategoryRepository categoryRepository;
-
-        public CategoryService()
-        {
-            categoryRepository = new CategoryRepository();
-        }
         public List<GetCategoryDto> GetCategory()
         {
             return categoryRepository.GetCategory();
