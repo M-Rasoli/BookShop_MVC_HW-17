@@ -1,0 +1,77 @@
+﻿@model BookShop_MVC.Application.DTOs.UpdateUserDto
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = "_AdminLayout";
+}
+
+<main class="flex-1 overflow-x-hidden overflow-y-auto md:mr-64 p-6 transition-all duration-300">
+
+    <!-- 3. Forms Section - Expanded with more input types -->
+    <section id="forms-section" class="mb-8">
+        <h2 class="text-2xl font-semibold text-gray-700 mb-4">فرم ثبت یا ویرایش اطلاعات</h2>
+        <div class="card p-6">
+            <form asp-controller="User" asp-action="Update" method="post">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                    <input type="hidden" asp-for="Id"></input>
+                    <!-- First Name -->
+                    <div>
+                        <label for="form_first_name" class="block text-sm font-medium text-gray-700 mb-1">نام</label>
+                        <input type="text" id="form_first_name" asp-for="FirstName" placeholder="نام خود را وارد کنید"
+                               class="mt-1 p-3 block w-full border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 transition duration-150">
+                    </div>
+
+                    <!-- Last Name -->
+                    <div>
+                        <label for="form_last_name" class="block text-sm font-medium text-gray-700 mb-1">نام خانوادگی</label>
+                        <input type="text" id="form_last_name" asp-for="LastName" placeholder="نام خانوادگی را وارد کنید"
+                               class="mt-1 p-3 block w-full border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 transition duration-150">
+                    </div>
+
+                    <!-- UserName -->
+                    <div>
+                        <label asp-for="UserName" class="block text-sm font-medium text-gray-700 mb-1">نام کاربری</label>
+                        <input type="text" id="form_email" asp-for="UserName" placeholder="example@domain.com"
+                               class="mt-1 p-3 block w-full border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 transition duration-150">
+                    </div>
+                    <!-- Password -->
+                    <div>
+                        <label asp-for="Password" class="block text-sm font-medium text-gray-700 mb-1">کلمه عبور</label>
+                        <input type="password" asp-for="Password"
+                               class="mt-1 p-3 block w-full border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 transition duration-150">
+                    </div>
+
+                    <!-- Role Select -->
+                    <div>
+                        <label for="form_role" class="block text-sm font-medium text-gray-700 mb-1">نقش</label>
+                        <select id="form_role" asp-for="Role"
+                                class="mt-1 p-3 block w-full border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 transition duration-150 bg-white">
+                            <option value="" disabled selected>انتخاب نقش</option>
+                            <option value="1">ادمین</option>
+                            <option value="2">مشتری</option>
+                        </select>
+                    </div>
+
+                </div>
+@* 
+                <!-- Radio Buttons and Checkboxes -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6 pt-4 border-t border-gray-100"> *@
+
+                    <!-- Submit Button -->
+                <div class="flex justify-end">
+                    <button type="submit"
+                            class="w-full sm:w-auto px-8 py-3 border border-transparent rounded-lg shadow-md text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition duration-150">
+                        ثبت نهایی اطلاعات
+                    </button>
+                </div>
+                
+                <div class="d-grid mb-2">
+
+                    <div style="color:red">@ViewBag.Error</div>
+
+                </div>
+            </form>
+        </div>
+    </section>
+</main>

@@ -6,18 +6,14 @@ using System.Diagnostics;
 
 namespace BookShop_MVC.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController(ICategoryService categoryService, IBookService bookService) : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-        private readonly ICategoryService categoryService;
-        private readonly IBookService bookService;
+        //private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
-        {
-            _logger = logger;
-            categoryService = new CategoryService();
-            bookService = new BookService();
-        }
+        //public HomeController(ILogger<HomeController> logger)
+        //{
+        //    _logger = logger;
+        //}
 
         public IActionResult Index()
         {

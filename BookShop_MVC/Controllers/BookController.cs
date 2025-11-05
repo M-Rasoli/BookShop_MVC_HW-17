@@ -8,17 +8,8 @@ using BookShop_MVC.Models;
 
 namespace BookShop_MVC.Controllers
 {
-    public class BookController : Controller
+    public class BookController(IBookService bookService, ICategoryService categoryService) : Controller
     {
-        private readonly IBookService bookService;
-        private readonly ICategoryService categoryService;
-
-        public BookController()
-        {
-            bookService = new BookService();
-            categoryService = new CategoryService();
-        }
-
         public IActionResult Add()
         {
             AddNewBookModel book = new AddNewBookModel()
