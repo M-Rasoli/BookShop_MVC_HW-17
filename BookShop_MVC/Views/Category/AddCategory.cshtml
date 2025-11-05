@@ -1,0 +1,47 @@
+﻿@model BookShop_MVC.Application.DTOs.CreateCategoryDto
+@{
+    Layout = "_AdminLayout";
+}
+
+<div class="container d-flex align-items-center justify-content-center min-vh-100 mt-5">
+    <div class="col-12 col-md-8 col-lg-6">
+        <div class="card shadow-sm">
+            <div class="card-body p-4">
+                <h2 class="card-title mb-3 text-center">ایجاد دسته بندی جدید‌</h2>
+
+                <form asp-controller="Category" asp-action="AddCategory" method="post" enctype="multipart/form-data">
+                    <div class="row g-3">
+                        <div class="col-12 col-md-6">
+
+                            <label asp-for="Title">عنوان دسته بندی</label>
+                            <input type="text" class="form-control" asp-for="Title" placeholder="عنوان" required>
+
+                        </div>
+
+                        <div class="col-12 col-md-6">
+                            <label asp-for="Description">توضیحات</label>
+                            <input type="text" class="form-control" asp-for="Description" placeholder="" required>
+
+                        </div>
+
+                        <div class="col-12 d-grid">
+                            <button class="btn btn-primary btn-lg" type="submit">ایجاد دسته بندی</button>
+                        </div>
+
+                        <div class="d-grid mb-2">
+
+                            <div style="color:red">@ViewBag.Error</div>
+
+                        </div>
+                        <div class="d-grid mb-2">
+
+                            <div style="color:green">@ViewBag.Success</div>
+
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
