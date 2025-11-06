@@ -43,6 +43,11 @@ namespace BookShop_MVC.Models.Infrastructure.Repositories
                 }).FirstOrDefault();
         }
 
+        public string GetUserNameById(int userId)
+        {
+            return _context.Users.FirstOrDefault(u => u.Id == userId).UserName;
+        }
+
         public bool IsUserNameExist(string userName)
         {
             return _context.Users.Any(u => u.UserName.ToLower() == userName.ToLower());

@@ -12,5 +12,6 @@ namespace BookShop_MVC.Application.Contracts.RepositoryContracts
         List<ShowUsersListDto> UsersList();
         bool IsUserNameExist(string userName);
         UpdateUserDto GetUserById(int userId);
+        string GetUserNameById(int userId);
     }
 }

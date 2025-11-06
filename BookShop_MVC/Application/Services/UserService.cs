@@ -76,9 +76,14 @@ namespace BookShop_MVC.Application.Services
             {
                 return Result<bool>.Failure(message: "فیلد های اجبرای باید کامل شوند .");
             }
-            if (userRepository.IsUserNameExist(user.UserName))
+
+            var userName = userRepository.GetUserNameById(userId);
+            if (userName.ToLower() != user.UserName.ToLower())
             {
-                return Result<bool>.Failure(message:"نام کاربری قبلا استفاده شده است");
+                if (userRepository.IsUserNameExist(user.UserName))
+                {
+                    return Result<bool>.Failure(message: "نام کاربری قبلا استفاده شده است");
+                }
             }
 
             if (!string.IsNullOrWhiteSpace(user.Password))
