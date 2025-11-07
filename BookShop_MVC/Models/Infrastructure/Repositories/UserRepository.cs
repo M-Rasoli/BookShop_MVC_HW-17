@@ -2,6 +2,7 @@
 using BookShop_MVC.Application.DTOs;
 using BookShop_MVC.Models.Entities;
 using BookShop_MVC.Models.Infrastructure.DateBase;
+using Microsoft.EntityFrameworkCore;
 
 namespace BookShop_MVC.Models.Infrastructure.Repositories
 {
@@ -98,7 +99,8 @@ namespace BookShop_MVC.Models.Infrastructure.Repositories
 
         public List<ShowUsersListDto> UsersList()
         {
-            return _context.Users.Select(x => new ShowUsersListDto()
+            return _context.Users.AsNoTracking()
+                .Select(x => new ShowUsersListDto()
             {
                 Id = x.Id,
                 UserName = x.UserName,
